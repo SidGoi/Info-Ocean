@@ -1,0 +1,72 @@
+.btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: linear-gradient(
+    90deg,
+    rgb(17, 50, 70) 0%,
+    rgba(10, 44, 66, 1) 50%,
+    rgb(13, 39, 55) 100%
+  );
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  position: relative;
+  z-index: 1;
+  /* overflow: hidden; */
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  scale: 1.05;
+  transition: 0.5s;
+
+}
+
+/* Gradient Border */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to left, #143e59, #1d83cc, #154562);
+  z-index: -1;
+  border-radius: 8px;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to left, #091b26, #186ba6, #091b26);
+  top: 0;
+  left: 0;
+  z-index: -5;
+  filter: blur(10px);
+  scale: 1.2;
+  opacity: 0;
+  transition: 0.5s;
+
+}
+
+.btn:hover::after {
+  opacity: 0.8;
+}
+
+.btnarrow{
+  height: 50%;
+  width: auto;
+}

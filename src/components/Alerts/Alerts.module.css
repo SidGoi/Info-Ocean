@@ -1,0 +1,11 @@
+.Alerts {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
