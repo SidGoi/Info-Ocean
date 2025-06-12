@@ -71,8 +71,8 @@
 .waveblur {
   position: absolute;
   filter: blur(80px);
-  opacity: 0.3;
-  height: 320px;
+  opacity: 0.4;
+  height: 350px;
   rotate: -10deg;
   width: auto;
 }
