@@ -71,7 +71,7 @@
   position: absolute;
   filter: blur(80px);
   opacity: 0.5;
-  height: 350px;
+  height: 15rem;
   rotate: -10deg;
   width: auto;
 }
@@ -82,9 +82,13 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 15rem 0 11rem 0;
+  }
   .first {
     font-size: 2rem;
     margin-bottom: -0.5rem;
+    gap: 0.6rem;
   }
   .second {
     font-size: 4rem;
@@ -94,5 +98,8 @@
     max-width: 90vw;
     font-size: 0.8rem;
     text-align: center;
+  }
+  .waveblur {
+    height: 10rem;
   }
 }
