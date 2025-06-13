@@ -102,51 +102,37 @@ const Navbar = () => {
           </div>
         </div>
 
-
-
-
-
         <div
           className={styles.hamburger}
           ref={hamburgerRef}
           onClick={toggleMenu}
         >
-
-
-
           <div className={`${styles.bar} ${isOpen ? styles.bar1 : ""}`}></div>
           <div className={`${styles.bar} ${isOpen ? styles.bar3 : ""}`}></div>
-
-
-
-          
         </div>
-
-
-
-
-
 
         <div
           ref={mobileMenuRef}
           className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}
         >
-          <ul className={styles.mobileNavlinks}>
-            {["Home", "About", "Services"].map((item) => (
-              <li key={item} onClick={toggleMenu}>
-                <Link
-                  href={"/"}
-                  className={`${styles.mobileNavLink} ${
-                    item === "Home" ? styles.active : ""
-                  }`}
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className={styles.mobileButton} onClick={toggleMenu}>
-            <IO_Button title="Let's Talk" />
+          <div className={styles.glass}>
+            <ul className={styles.mobileNavlinks}>
+              {["Home", "About", "Services"].map((item) => (
+                <li key={item} onClick={toggleMenu}>
+                  <Link
+                    href={"/"}
+                    className={`${styles.mobileNavLink} ${
+                      item === "Home" ? styles.active : ""
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.mobileButton} onClick={toggleMenu}>
+              <IO_Button title="Let's Talk" />
+            </div>
           </div>
         </div>
       </nav>

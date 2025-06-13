@@ -99,6 +99,15 @@
   transform: translateY(3px) rotate(-45deg);
 }
 
+.glass {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#00243fd9, #001728d6);
+  backdrop-filter: blur(100px);
+
+  padding: 5rem 0 0 3.5rem;
+}
+
 /* Mobile Menu Styles */
 .mobileMenu {
   position: fixed;
@@ -106,20 +115,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.6));
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
-
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
 
-  padding: 5rem 0 0 3.5rem;
   transition: transform 0.5s ease-in-out;
 
-  z-index: 1050; /* Below hamburger, above main content */
+  z-index: 1050;
+  border-left: 1px solid rgba(255, 255, 255, 0.1); /* optional styling touch */
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.05); /* subtle inner glow */
 }
 
 .mobileNavlinks {
