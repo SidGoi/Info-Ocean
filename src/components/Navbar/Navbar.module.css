@@ -1,3 +1,5 @@
+/* Navbar.module.css */
+
 .nav {
   width: 100%;
   padding: 20px 100px;
@@ -5,6 +7,14 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
+
+  background: linear-gradient(#04111ba1, #04111b96);
+  backdrop-filter: blur(20px);
+  
 }
 
 .nav::after {
@@ -12,18 +22,24 @@
   width: 100%;
   height: 1px;
   position: absolute;
-  bottom: -2px;
+  bottom: 0px;
   left: 0;
-  background: linear-gradient(to left, #04111B, #186ba6, #04111B);
+  background: linear-gradient(to left, #04111b, #186ba6, #04111b);
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
 }
 
 .infooceanlogo {
-  width: 15vw;
+  width: 15vw; /* Responsive width */
+  max-width: 150px; /* Max width for larger screens */
   height: auto;
   margin-top: 5px;
 }
 
-.navright {
+.navRight {
   display: flex;
   align-items: center;
   gap: 25px;
@@ -34,16 +50,130 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 2.5vw;
 }
 
 .navlink {
   text-decoration: none;
   color: #fff;
-  font-size: 1.5vw;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
+.navlink:hover {
+  color: #4fb6ff;
+}
 
 .navlink.active {
+  color: #4fb6ff;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none; /* Hidden by default on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1100; /* Above mobile menu */
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.bar1 {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.bar2 {
+  opacity: 0;
+}
+
+.bar3 {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #04111b; /* Or your preferred mobile menu background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%); /* Start off-screen */
+  transition: transform 0.5s ease-in-out;
+  z-index: 1050; /* Below hamburger, above main content */
+}
+
+.mobileMenu.open {
+  transform: translateX(0); /* Slide in */
+}
+
+.mobileNavlinks {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  color: #fff;
+  font-size: 6vw; /* Larger font size for mobile */
+  transition: color 0.3s ease;
+}
+
+.mobileNavLink:hover {
   color: #1d8ad8;
+}
+
+.mobileNavLink.active {
+  color: #1d8ad8;
+}
+
+.mobileButton {
+  margin-top: 40px;
+}
+
+/* Hide desktop elements on small screens */
+@media (max-width: 768px) {
+  .nav {
+    padding: 15px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .navRight {
+    display: none; /* Hide desktop nav links and button */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .infooceanlogo {
+    width: 30vw; /* Adjust logo size for mobile */
+    max-width: 120px; /* Ensure it doesn't get too big */
+  }
+
+  .desktopButton {
+    display: none; /* Hide desktop button */
+  }
+}
+
+/* Further adjustments for very small screens if needed */
+@media (max-width: 480px) {
+  .nav {
+    padding: 15px 15px;
+  }
 }

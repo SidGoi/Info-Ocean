@@ -1,16 +1,20 @@
+// Navbar.js
 "use client"; // Required for GSAP in Next.js app
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./Navbar.module.css";
 import Link from "next/link";
-import IO_Button from "../IO_Button/IO_Button";
 import { gsap } from "gsap";
+import IO_Button from "../IO_Button/IO_Button";
+import styles from "./Navbar.module.css"; // Ensure this path is correct
 
 const Navbar = () => {
   const logoRef = useRef(null);
   const linksRef = useRef([]);
   const buttonRef = useRef(null);
+  const hamburgerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     // Logo animation
@@ -40,10 +44,30 @@ const Navbar = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      gsap.to(mobileMenuRef.current, {
+        x: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    } else {
+      gsap.to(mobileMenuRef.current, {
+        x: "100%",
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    }
+  }, [isOpen]);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header>
       <nav className={styles.nav}>
-        <div className="nav-left">
+        <div className={styles.navLeft}>
           <Link href={"/"}>
             <Image
               ref={logoRef}
@@ -56,21 +80,57 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className={styles.navright}>
+
+        <div className={styles.navRight}>
           <ul className={styles.navlinks}>
             {["Home", "About", "Services"].map((item, index) => (
               <li key={item}>
                 <Link
                   href={"/"}
                   ref={(el) => (linksRef.current[index] = el)}
-                  className={`${styles.navlink} ${item === "Home" ? styles.active : ""}`}
+                  className={`${styles.navlink} ${
+                    item === "Home" ? styles.active : ""
+                  }`}
                 >
                   {item}
                 </Link>
               </li>
             ))}
           </ul>
-          <div ref={buttonRef}>
+          <div ref={buttonRef} className={styles.desktopButton}>
+            <IO_Button title="Let's Talk" />
+          </div>
+        </div>
+
+        <div
+          className={styles.hamburger}
+          ref={hamburgerRef}
+          onClick={toggleMenu}
+        >
+          <div className={`${styles.bar} ${isOpen ? styles.bar1 : ""}`}></div>
+          <div className={`${styles.bar} ${isOpen ? styles.bar2 : ""}`}></div>
+          <div className={`${styles.bar} ${isOpen ? styles.bar3 : ""}`}></div>
+        </div>
+
+        <div
+          ref={mobileMenuRef}
+          className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}
+        >
+          <ul className={styles.mobileNavlinks}>
+            {["Home", "About", "Services"].map((item) => (
+              <li key={item} onClick={toggleMenu}>
+                <Link
+                  href={"/"}
+                  className={`${styles.mobileNavLink} ${
+                    item === "Home" ? styles.active : ""
+                  }`}
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.mobileButton} onClick={toggleMenu}>
             <IO_Button title="Let's Talk" />
           </div>
         </div>

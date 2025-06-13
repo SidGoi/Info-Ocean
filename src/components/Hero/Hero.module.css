@@ -5,8 +5,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 25px;
-  min-height: 80vh;
+  padding: 11rem 0 8rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -28,9 +27,10 @@
 .first {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 5vw;
+  gap: 1rem;
+  font-size: 4rem;
   justify-content: center;
+  margin-bottom: -1rem;
 }
 
 .waveChar {
@@ -38,24 +38,23 @@
 }
 
 .second {
-  font-size: 8.5vw;
-  line-height: 80px;
-  font-weight: 500;
+  font-size: 7rem;
   background: linear-gradient(90deg, #186ba6, #008bed, #186ba6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; /* For Firefox */
   color: transparent;
+  margin-top: -2rem;
 }
 
 .subtitle {
-  font-size: 1.8vw;
+  font-size: 1.3rem;
   z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 1.2rem;
 }
 
 .circleglow {
@@ -71,7 +70,7 @@
 .waveblur {
   position: absolute;
   filter: blur(80px);
-  opacity: 0.4;
+  opacity: 0.5;
   height: 350px;
   rotate: -10deg;
   width: auto;

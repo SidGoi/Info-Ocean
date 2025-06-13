@@ -16,7 +16,8 @@ export default function Home() {
         <Navbar />
         <Hero />
 
-        <Alerts />
+        {/* Temp. Alert for Under Development status! */}
+        {/* <Alerts /> */}
       </main>
     </>
   );
