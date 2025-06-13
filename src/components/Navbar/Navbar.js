@@ -75,7 +75,7 @@ const Navbar = () => {
               src={"/assets/Info_Ocean_Logo_Without_Tagline.png"}
               alt="InfoOcean Logo"
               width={500}
-              height={500}
+              height={300}
               priority
             />
           </Link>

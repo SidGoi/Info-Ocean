@@ -80,3 +80,19 @@
   z-index: 5;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .first {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+  }
+  .second {
+    font-size: 4rem;
+    margin-top: -1rem;
+  }
+  .subtitle {
+    max-width: 90vw;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
