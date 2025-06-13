@@ -48,13 +48,13 @@ const Navbar = () => {
     if (isOpen) {
       gsap.to(mobileMenuRef.current, {
         x: 0,
-        duration: 0.5,
+        duration: 0.1,
         ease: "power3.out",
       });
     } else {
       gsap.to(mobileMenuRef.current, {
         x: "100%",
-        duration: 0.5,
+        duration: 0.1,
         ease: "power3.out",
       });
     }
@@ -102,15 +102,30 @@ const Navbar = () => {
           </div>
         </div>
 
+
+
+
+
         <div
           className={styles.hamburger}
           ref={hamburgerRef}
           onClick={toggleMenu}
         >
+
+
+
           <div className={`${styles.bar} ${isOpen ? styles.bar1 : ""}`}></div>
-          <div className={`${styles.bar} ${isOpen ? styles.bar2 : ""}`}></div>
           <div className={`${styles.bar} ${isOpen ? styles.bar3 : ""}`}></div>
+
+
+
+          
         </div>
+
+
+
+
+
 
         <div
           ref={mobileMenuRef}

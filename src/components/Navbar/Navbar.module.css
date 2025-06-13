@@ -10,8 +10,7 @@
   z-index: 1000;
   position: fixed;
   top: 0px;
-  z-index: 1000;
-
+  z-index: 1100;
   background: linear-gradient(#04111ba1, #04111b96);
   backdrop-filter: blur(20px);
 }
@@ -69,11 +68,11 @@
 
 /* Hamburger Menu Styles */
 .hamburger {
-  display: none; /* Hidden by default on desktop */
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
-  height: 25px;
+  height: 30px;
   cursor: pointer;
   z-index: 1100; /* Above mobile menu */
 }
@@ -81,12 +80,14 @@
 .bar {
   width: 100%;
   height: 3px;
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
+  background-color: #004376;
+  border-radius: 100px;
+  transition: all 0.4s ease-in-out;
 }
 
 .bar1 {
-  transform: translateY(11px) rotate(45deg);
+  transform: translateY(-3px) rotate(45deg);
+  transform-origin: top left;
 }
 
 .bar2 {
@@ -94,7 +95,8 @@
 }
 
 .bar3 {
-  transform: translateY(-11px) rotate(-45deg);
+  transform-origin: bottom left;
+  transform: translateY(3px) rotate(-45deg);
 }
 
 /* Mobile Menu Styles */
@@ -102,20 +104,22 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #04111b; /* Or your preferred mobile menu background */
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.6));
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(100%); /* Start off-screen */
-  transition: transform 0.5s ease-in-out;
-  z-index: 1050; /* Below hamburger, above main content */
-}
+  align-items: start;
+  justify-content: start;
 
-.mobileMenu.open {
-  transform: translateX(0); /* Slide in */
+  padding: 5rem 0 0 3.5rem;
+  transition: transform 0.5s ease-in-out;
+
+  z-index: 1050; /* Below hamburger, above main content */
 }
 
 .mobileNavlinks {
@@ -124,7 +128,6 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  text-align: center;
 }
 
 .mobileNavLink {
